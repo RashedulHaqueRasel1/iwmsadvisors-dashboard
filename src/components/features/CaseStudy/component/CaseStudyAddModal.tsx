@@ -40,22 +40,22 @@ const richTextSections: {
   label: string;
   placeholder: string;
 }[] = [
-  {
-    field: "customer",
-    label: "Customer",
-    placeholder: "Write customer details",
-  },
-  {
-    field: "challenge",
-    label: "Challenge",
-    placeholder: "Describe the challenge",
-  },
-  {
-    field: "solution",
-    label: "Solution",
-    placeholder: "Describe the solution",
-  },
-];
+    {
+      field: "customer",
+      label: "Customer",
+      placeholder: "Write customer details",
+    },
+    {
+      field: "challenge",
+      label: "Challenge",
+      placeholder: "Describe the challenge",
+    },
+    {
+      field: "solution",
+      label: "Solution",
+      placeholder: "Describe the solution",
+    },
+  ];
 
 const emptyFormData = {
   title: "",
@@ -291,7 +291,7 @@ export default function CaseStudyAddModal({
 
           <div className="space-y-3 rounded-lg border border-gray-200 bg-gray-50/50 p-4">
             <Label className="text-sm font-bold text-gray-700">
-              Benefits (Multi Text)
+              Benefits
             </Label>
 
             <div className="space-y-3">

@@ -220,9 +220,9 @@ export default function CaseStudy() {
                 <TableHead className="py-4 text-gray-600 font-bold text-center">
                   Subtitle
                 </TableHead>
-                <TableHead className="py-4 text-gray-600 font-bold text-center">
+                {/* <TableHead className="py-4 text-gray-600 font-bold text-center">
                   Customer
-                </TableHead>
+                </TableHead> */}
                 <TableHead className="py-4 text-gray-600 font-bold text-center">
                   Created
                 </TableHead>
@@ -244,9 +244,9 @@ export default function CaseStudy() {
                     <TableCell className="py-4 text-center text-gray-600">
                       {caseStudy.subtitle || "N/A"}
                     </TableCell>
-                    <TableCell className="py-4 text-center text-gray-600">
+                    {/* <TableCell className="py-4 text-center text-gray-600">
                       {toPlainText(caseStudy.customer).replace(/\n/g, " ") || "N/A"}
-                    </TableCell>
+                    </TableCell> */}
                     <TableCell className="py-4 text-center text-gray-600">
                       {new Intl.DateTimeFormat("en-US", {
                         month: "short",
