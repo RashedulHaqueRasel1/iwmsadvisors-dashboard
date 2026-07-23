@@ -1,2 +1,0 @@
-﻿src/components/features/heroSection/component/HeroSection.tsx(27,8): error TS2307: Cannot find module '@/components/ui/alert-dialog' or its corresponding type declarations.
-src/components/features/heroSection/component/HeroSection.tsx(251,25): error TS7006: Parameter 'e' implicitly has an 'any' type.
