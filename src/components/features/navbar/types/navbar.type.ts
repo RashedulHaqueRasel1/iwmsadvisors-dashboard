@@ -9,7 +9,7 @@ export interface Navbar {
 export interface NavbarResponse {
   status: boolean;
   message: string;
-  data: Navbar;
+  data: Navbar | null;
 }
 
 export interface BaseResponse {
