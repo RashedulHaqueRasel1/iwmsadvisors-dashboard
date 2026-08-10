@@ -85,7 +85,7 @@ export default function IntroductionSectionManagement() {
             </TabsContent>
 
             <TabsContent value="hero" className="mt-0 focus-visible:outline-none data-[state=inactive]:hidden animate-in fade-in duration-500">
-              <HeroSection showHeader={false} />
+              <HeroSection showHeader={false} showAddButton />
             </TabsContent>
 
             <TabsContent value="about" className="mt-0 focus-visible:outline-none data-[state=inactive]:hidden animate-in fade-in duration-500">

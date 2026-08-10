@@ -163,25 +163,37 @@ export default function NavbarManagement() {
                     </TableCell>
                   </TableRow>
                 ))
-              ) : (
+              ) : isLoading ? (
                 <TableRow>
                   <TableCell
                     colSpan={3}
                     className="py-16 text-center text-gray-400 font-medium italic bg-white"
                   >
-                    {isLoading ? (
-                      "Loading..."
-                    ) : (
-                      <>
-                        No navbar logo found.{" "}
-                        <button
-                          className="text-[#0057B8] hover:underline font-medium cursor-pointer"
-                          onClick={() => setIsAddModalOpen(true)}
-                        >
-                          Add one now
-                        </button>
-                      </>
-                    )}
+                    Loading...
+                  </TableCell>
+                </TableRow>
+              ) : (
+                <TableRow>
+                  <TableCell colSpan={3} className="p-6 bg-white">
+                    <div className="flex min-h-[320px] flex-col items-center justify-center rounded-2xl border border-dashed border-[#D6E4F5] bg-[#F8FBFF] px-6 py-12 text-center">
+                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-sm">
+                        <ImageIcon className="h-8 w-8 text-[#0057B8]" />
+                      </div>
+                      <h2 className="mt-6 text-2xl font-semibold text-gray-900">
+                        Data not found
+                      </h2>
+                      <p className="mt-2 max-w-md text-sm text-gray-500">
+                        No logo data is available right now. Add a new logo to
+                        show it here.
+                      </p>
+                      <Button
+                        onClick={() => setIsAddModalOpen(true)}
+                        className="mt-6 bg-[#0057B8] hover:bg-[#004494] text-white font-semibold"
+                      >
+                        <Plus className="mr-2 h-4 w-4" />
+                        Add Logo
+                      </Button>
+                    </div>
                   </TableCell>
                 </TableRow>
               )}

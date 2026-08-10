@@ -16,13 +16,16 @@ import {
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { HeroSection as HeroSectionType } from "../types/heroSection.type";
+import Image from "next/image";
 
 export default function HeroSection({
   showHeader = true,
   filterOrder,
+  showAddButton = true,
 }: {
   readonly showHeader?: boolean;
   readonly filterOrder?: number;
+  readonly showAddButton?: boolean;
 }) {
   const { data: response, isLoading, isError } = useHeroSections();
   const heroSections = response?.data || [];
@@ -122,34 +125,45 @@ export default function HeroSection({
 
   return (
     <div className="space-y-6">
-      {showHeader && (
+      {(showHeader || showAddButton) && (
         <div className="flex justify-between items-center">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight">
-              {pageTitle}
-            </h2>
-            <p className="text-muted-foreground">
-              Manage the hero banners displayed on the {filterOrder ? orderLabelMap[filterOrder] : "landing page"}.
-            </p>
-          </div>
-          {(!filterOrder || sortedHeroSections.length === 0) && (
-            <Button
-              onClick={() => setIsAddModalOpen(true)}
-              className="bg-[#0057B8] hover:bg-[#004494]"
-            >
-              <Plus className="w-4 h-4 mr-2" />
-              Add Hero Section
-            </Button>
+          {showHeader ? (
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight">
+                {pageTitle}
+              </h2>
+              <p className="text-muted-foreground">
+                Manage the hero banners displayed on the {filterOrder ? orderLabelMap[filterOrder] : "landing page"}.
+              </p>
+            </div>
+          ) : (
+            <div />
           )}
         </div>
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {sortedHeroSections.length === 0 && !isLoading ? (
-          <div className="col-span-1 lg:col-span-1 flex flex-col items-center justify-center p-8 bg-white rounded-2xl border border-dashed border-gray-200 opacity-60">
-            <p className="text-gray-400 text-sm italic">
-              (Additional sections will appear here)
+          <div className="col-span-full flex flex-col items-center justify-center py-20 bg-white rounded-2xl border border-dashed border-gray-200">
+            <div className="bg-gray-50 p-4 rounded-full mb-4">
+              <Image
+                src="/no-data.svg"
+                alt="No data"
+                width={64}
+                height={64}
+                className="opacity-20"
+                onError={(e) => (e.currentTarget.style.display = "none")}
+              />
+            </div>
+            <p className="text-gray-400 text-lg font-medium">
+              No hero sections found
             </p>
+            <button
+              className="text-[#0057B8] hover:underline mt-2 font-semibold cursor-pointer"
+              onClick={() => setIsAddModalOpen(true)}
+            >
+              Create your first hero section
+            </button>
           </div>
         ) : (
           sortedHeroSections.map((section) => (
